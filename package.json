@@ -1,0 +1,52 @@
+{
+  "name": "fizzy-analysis",
+  "version": "0.1.0",
+  "author": {
+    "name": "Maxime Biais",
+    "email": "maxime.biais@gmail.com"
+  },
+  "main": "src/cli.js",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-jest": "^23.6.0",
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.12.3",
+    "jest": "^19.0.2",
+    "jest-cli": "^20.0.0"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.2.3",
+    "abi-decoder": "^1.2.0",
+    "csv-string": "^3.1.5",
+    "eth-toolbox": "git://github.com/maxme/eth-toolbox.git#e372051",
+    "web3": "^1.0.0-beta.37"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "scripts": {
+    "start": "babel-node -- src/cli.js",
+    "build": "babel src -d dist",
+    "test": "jest",
+    "lint": "eslint src test",
+    "lint-fix": "yarn lint -- --fix",
+    "clean": "del dist",
+    "coverage": "yarn test -- --coverage",
+    "preversion": "yarn lint && yarn test && yarn build",
+    "prepublish": "yarn lint && yarn test && yarn build"
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT"
+}
